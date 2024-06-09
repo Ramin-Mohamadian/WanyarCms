@@ -1,0 +1,53 @@
+﻿
+
+
+<script src="/js/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*
+        var defaults = {
+        wrapID: 'toTop', // fading element id
+        wrapHoverID: 'toTopHover', // fading element hover id
+        scrollSpeed: 1200,
+        easingType: 'linear'
+        };
+        */
+        $().UItoTop({ easingType: 'easeOutQuart' });
+    });
+</script>
+<script type="text/javascript" src="/js/jquery.marquee.min.js"></script>
+<script>
+    $('.marquee').marquee({ pauseOnHover: true });
+    // sourceURL=pen.js
+</script>
+<script src="/js/classie.js"></script>
+<script src="/js/uisearch.js"></script>
+<script>
+    new UISearch(document.getElementById('sb-search'));
+</script>
+<script>
+    $(function () {
+        $("#slider").responsiveSlides({
+            auto: true,
+            nav: true,
+            speed: 500,
+            namespace: "callbacks",
+            pager: true,
+        });
+    });
+</script>
+<script type="text/javascript" src="/js/move-top.js"></script>
+<script type="text/javascript" src="/js/easing.js"></script>
+<!--/script-->
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 900);
+        });
+    });
+</script>
+<script src="/js/responsiveslides.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>

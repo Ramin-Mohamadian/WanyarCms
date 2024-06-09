@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "ShowActiveMessage";
+}
+
+@if (ViewBag.ActiveMessage==true)
+{
+    <div class="container">
+        <div class="row">
+            <div class="alert alert-info">
+                <p>کاربر گرامی حساب شما با موفیقت فعال گردید</p>
+                <p>لطفا مجدد وارد سایت شوید</p>
+                <p>
+                    <a class="btn btn-info" href="/Login">ورود به سایت</a>
+                </p>
+            </div>
+          
+        </div>
+    </div>
+}
+

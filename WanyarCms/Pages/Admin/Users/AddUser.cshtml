@@ -1,0 +1,57 @@
+﻿@page
+@model WanyarCms.Pages.Admin.Users.AddUserModel
+@{
+    IEnumerable<Wanyar.DataLayer.Entities.Role> role = ViewData["Roles"] as IEnumerable<Wanyar.DataLayer.Entities.Role>;
+}
+
+<div class="container">
+    <div class="row" style="margin:20px">
+        <form method="post" enctype="multipart/form-data">
+        <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="text" class="form-control" asp-for="register.userName" placeholder="نام کاربری" aria-describedby="sizing-addon2">
+        </div>
+        <span asp-validation-for="register.userName"></span>
+        <br />
+        <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-send"></i></span>
+            <input type="email" class="form-control" asp-for="register.email " placeholder="ایمیل" aria-describedby="sizing-addon2">
+        </div>
+        <span asp-validation-for="register.email"></span>
+        <br />
+        <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-phone"></i></span>
+            <input type="text" class="form-control" asp-for="register.phoneNumber" placeholder="شماره مبایل" aria-describedby="sizing-addon2">
+
+        </div>
+        <span asp-validation-for="register.phoneNumber"></span>
+        <br />
+        <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-filter"></i></span>
+            <input type="password" class="form-control" asp-for="register.password" placeholder="کلمه عبور" aria-describedby="sizing-addon2">
+
+        </div>
+        <span asp-validation-for="register.password"></span>
+        <br />
+        <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-certificate"></i></span>
+            <input type="password" class="form-control" asp-for="register.RePassword" placeholder="تکرار کلمه عبور" aria-describedby="sizing-addon2">
+
+        </div>
+        <span asp-validation-for="register.RePassword"></span>
+
+
+            @foreach (var item in role)
+            {
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="SelectedRole" value="@item.roleId">@item.RoleTitle
+                    </label>
+                </div>
+            }
+        <br />
+        <button class="btn btn-success form-control" type="submit">ثبت نام</button>
+         </form>
+    </div>
+
+</div>

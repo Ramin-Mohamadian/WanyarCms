@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Wanyar.Core.DTOs.Article.SliderViewModel>
+
+
+<div class="wrap">
+    <div class="move-text" dir=ltr>
+        <div class="breaking_news">
+            <h2>
+                مقاله های محبوب
+            </h2>
+        </div>
+        <div class="marquee">
+
+            @foreach (var item in Model)
+            {
+                <div class="js-marquee" style="margin-right: 0px; float: left;">
+                <div class="marquee1">
+                        <a class="breaking" href="/Home/ShowArticle/@item.articleId">>>@item.ArticleTitle..</a>
+                </div>
+                <div class="clearfix"></div>
+                </div>
+
+            }
+
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

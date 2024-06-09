@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Wanyar.Core.DTOs.Article.SliderViewModel>
+<div class="slider">
+    <div class="callbacks_wrap">
+        <ul class="rslides" id="slider">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <img src="/Picture/@item.ArticleImageName"  alt="">
+                    <div class="caption">
+                        <a href="/Home/ShowArticle/@item.articleId">@item.ArticleTitle</a>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

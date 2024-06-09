@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Wanyar.Core.DTOs.Article.SliderViewModel>
+
+<p>
+    <h3>اخرین مقاله ها</h3>
+</p>
+<div class="side-bar-articles">    
+   @foreach(var item in Model)
+    {
+        <div class="side-bar-article">
+            <a href=""><img src="/Picture/@item.ArticleImageName" alt="" /></a>
+            <div class="side-bar-article-title">
+                <a href="">@item.ArticleTitle</a>
+            </div>
+        </div>
+    }
+    
+</div>

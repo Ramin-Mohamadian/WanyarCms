@@ -1,0 +1,41 @@
+﻿@page
+@model WanyarCms.Pages.Admin.Users.IndexModel
+@{
+
+}
+
+<div class="container">
+    <div class="row">
+        <a class="btn btn-success" asp-page="AddUser">افزودن کاربر</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">نام کاربری</th>
+                    <th scope="col">ایمیل</th>
+                    <th scope="col">شماره مبایل</th>
+                    <th scope="col">تاریخ ثبت نام</th>
+                    <th scope="col">فعال </th>
+                    <th scope="col">دستورات </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.GetUser)
+                {
+                    <tr>
+                        <th scope="row">@item.userId</th>
+                        <td>@item.userName</td>
+                        <td>@item.email</td>
+                        <td>@item.phoneNumber</td>
+                        <td>@item.registeDate</td>
+                        <td>@item.IsActive</td>
+                        <td>
+                            <a class="btn btn-warning" href="/Admin/Users/EditUser/@item.userId">ویرایش</a>
+                            <a class="btn btn-danger" href="/Admin/Users/DeleteUser/@item.userId">حذف</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

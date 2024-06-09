@@ -1,0 +1,60 @@
+﻿@model Wanyar.Core.DTOs.SignUpViewModel
+@{
+    ViewData["Title"] = "ثبت نام";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+
+
+<div class="container">
+    <div class="row" style="margin:20px">
+        @if (ViewBag.userexist==true)
+        {
+            <div class="alert alert-danger">
+                <h5>
+                    نام کاربری یا ایمیل قبلا وارد شده است
+                </h5>
+            </div>
+        }
+        <form asp-controller="Account" asp-action="SignUp" method="post">
+
+            <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" asp-for="userName" placeholder="نام کاربری" aria-describedby="sizing-addon2">
+            </div>
+            <span asp-validation-for="userName"></span>
+            <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-send"></i></span>
+                <input type="email" class="form-control" asp-for="email" placeholder="ایمیل" aria-describedby="sizing-addon2">
+            </div>
+            <span asp-validation-for="email"></span>
+            <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-phone"></i></span>
+                <input type="text" class="form-control" asp-for="phoneNumber" placeholder="شماره مبایل" aria-describedby="sizing-addon2">
+
+            </div>
+            <span asp-validation-for="phoneNumber"></span>
+            <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-filter"></i></span>
+                <input type="password" class="form-control" asp-for="password" placeholder="کلمه عبور" aria-describedby="sizing-addon2">
+
+            </div>
+            <span asp-validation-for="password"></span>
+            <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-certificate"></i></span>
+                <input type="password" class="form-control" asp-for="RePassword" placeholder="تکرار کلمه عبور" aria-describedby="sizing-addon2">
+
+            </div>
+            <span asp-validation-for="RePassword"></span>
+            <button class="btn btn-success form-control" type="submit">ثبت نام</button>
+        </form>
+    </div>
+
+</div>
+@section Scripts
+    {
+    <link href="/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link src="/css/bootstrap-rtl.css" rel="stylesheet" />
+
+}
+

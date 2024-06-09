@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Wanyar.Core.DTOs.Article.GetArticleForSHowViewModel>
+@{
+    ViewData["Title"] = ViewData["name"];
+}
+
+<h4>مقاله های مربوط به گروه "@ViewData["name"]"</h4>
+
+<hr />
+
+<partial name="_ArticleBox"/>

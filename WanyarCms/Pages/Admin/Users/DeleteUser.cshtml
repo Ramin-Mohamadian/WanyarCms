@@ -1,0 +1,22 @@
+﻿@page "{id}"
+@model WanyarCms.Pages.Admin.Users.DeleteUserModel
+@{
+
+    
+}
+
+
+<div class="container">
+    <div class="row">
+        <form method="post">
+            <p>
+                <h4>
+                    ایا از حذف "
+                    <label> @ViewData["Name"]</label>
+                    " مطمئن هستید ؟
+                </h4>
+                <button class="btn btn-danger" type="submit">حذف</button>
+            </p>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Wanyar.Core.DTOs.Article.SliderViewModel>
+
+
+<div class="list_vertical">
+    <section class="accordation_menu">
+        <div>
+            <input id="label-1" name="lida" type="radio" checked />
+            <label for="label-1" id="item1">
+                <i class="ferme"> </i>
+                محبوب پست ها
+                <i class="icon-plus-sign i-left1"></i><i class="icon-minus-sign i-left2"></i>
+            </label>
+            <div class="content" id="a1">
+                <div class="scrollbar" id="style-2">
+                    <div class="force-overflow">
+                        <div class="popular-post-grids">
+                            @foreach (var item in Model)
+                            {
+                                <div class="popular-post-grid">
+                                    <div class="post-img">
+                                        <a href="/Home/ShowArticle/@item.articleId"><img src="/Picture/@item.ArticleImageName" alt="" /></a>
+                                    </div>
+                                    <div class="post-text">
+                                        <a class="pp-title" href="/Home/ShowArticle/@item.articleId">@item.ArticleTitle</a>
+                                        <p>On Feb 25 <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>3 </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a></p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            }
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <input id="label-2" name="lida" type="radio" />         
+        </div>
+     
+    </section>
+</div>

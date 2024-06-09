@@ -1,0 +1,19 @@
+﻿@model Wanyar.DataLayer.Entities.User
+@{
+    ViewData["Title"] = "SuccessRegister";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<div class="container">
+<div class="row">
+    <div class="alert alert-success">
+        <p>
+            <h4>
+            کاربر گرامی'@Model.userName'                  
+            ثبت نام شما با موفقیت انجام شد ایمیلی حاوی لینک فعال سازی حساب کاربری برای شما ارسال گردید
+            لطفا جهت فعال سازی حساب وارد ایمیل خود شوید.
+            </h4>
+        </p>
+    </div>
+</div>
+</div>

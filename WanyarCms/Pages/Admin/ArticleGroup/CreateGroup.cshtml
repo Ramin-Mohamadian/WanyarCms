@@ -1,0 +1,29 @@
+﻿@page "{id?}"
+@model WanyarCms.Pages.Admin.ArticleGroup.CreateGroupModel
+@{
+
+}
+
+
+<div class="row">
+    <form method="post" enctype="multipart/form-data">   
+        <input type="hidden" asp-for="ArticleGroup.parentId" />
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    گروه جدید
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>عنوان گروه</label>
+                        <input type="text" asp-for="ArticleGroup.groupTitle" class="form-control">
+                    </div>
+                    <input type="submit" value="ذخیره اطلاعات" class="btn btn-success" />
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+
+    </form>
+</div>

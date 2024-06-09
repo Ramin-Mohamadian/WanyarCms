@@ -1,0 +1,157 @@
+﻿@page
+@model WanyarCms.Pages.Admin.Article.CreateArticleModel
+@{
+    // var groups = ViewData["Groups"]  as SelectList;
+}
+
+<div class="row">
+    <form method="post" enctype="multipart/form-data">
+        <div class="col-md-8">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    فرم مقاله
+                </div>
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <label>عنوان مقاله</label>
+                        <input type="text" asp-for="Article.ArticleTitle" class="form-control" placeholder="عنوان مقاله" />
+                    </div>
+                    <span asp-validation-for="Article.ArticleTitle"></span>
+
+
+
+                    <div class="form-group">
+                        <label>گروه اصلی</label>
+                        <select class="form-control" asp-for="Article.GroupId" asp-items="@(ViewData["Groups"] as SelectList)">
+                        </select>
+                    </div>
+                    <span asp-validation-for="Article.GroupId"></span>
+
+
+                    <div class="form-group">
+                        <label>زیر گروه</label>
+                        <select class="form-control" asp-for="Article.SubGroup" asp-items="@(ViewData["SubGroups"] as SelectList)">
+                        </select>
+                    </div>
+                    <span asp-validation-for="Article.SubGroup"></span>
+
+
+                    <div class="form-group">
+                        <label>توضیح مختصر</label>
+                        <textarea class="form-control" asp-for="Article.ArticleDescription"></textarea>
+                    </div>
+                    <span asp-validation-for="Article.ArticleDescription"></span>
+
+
+
+
+                    <div class="form-group">
+                        <label>متن مقاله</label>
+                        <textarea class="form-control" asp-for="Article.Text"></textarea>
+                    </div>
+                    <span asp-validation-for="Article.Text"></span>
+
+
+                    <div class="form-group">
+                        <label>نمایش در اسلایدر</label>
+                        <input type="checkbox" asp-for="Article.ShowInSlider" />
+                    </div>
+                    <span asp-validation-for="Article.ShowInSlider"></span>
+
+
+
+
+                    <div class="form-group">
+                        <label>برچسب ها</label>
+                        <input type="text" class="form-control" asp-for="Article.Tags" multiple />
+                        <p class="text-black-50">برچسب ها را با ',' جدا کنید.</p>
+                    </div>
+                    <span asp-validation-for="Article.Tags"></span>
+
+
+
+                    <br />
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    تصویر مقاله
+                </div>
+                <div class="panel-body">
+                    <img src="/Picture/default.jpg" id="previewHolder" class="thumbnail" />
+
+                    <div class="form-group">
+                        <label>انتخاب تصویر</label>
+                        <input type="file" name="imgArticleUp" id="imgArticleUp">
+                    </div>
+
+                    <div class="form-group">
+                        <label>نویسنده:</label>
+                        <select asp-for="Article.TeacherId" class="form-control" asp-items="@(ViewData["Teacher"] as SelectList)">
+                        </select>
+                    </div>
+                    <span asp-validation-for="Article.TeacherId"></span>
+
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="ثبت" class="btn btn-success form-control" />
+        <p></p>
+        <p></p>
+
+    </form>
+</div>
+@section Scripts{
+    <script>
+        $("#Article_GroupId").change(function () {
+            $("#Article_SubGroup").empty();
+            $.getJSON("/account/GetSubGroup/" + $("#Article_GroupId :selected").val(),
+                function (data) {
+
+                    $.each(data,
+                        function () {
+                            $("#Article_SubGroup").append('<option value=' + this.value + '>' + this.text + '</option>');
+
+                        });
+
+                });
+
+
+        });
+    </script>
+    <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+    <script>
+
+        CKEDITOR.replace('Article_ArticleDescription', {
+            customConfig: '/js/config.js'
+        });
+        CKEDITOR.replace('Article_Text', {
+            customConfig: '/js/config.js'
+        });
+    </script>
+    <script>
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#previewHolder').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                alert('select a file to see preview');
+                $('#previewHolder').attr('src', '');
+            }
+        }
+
+        $("#imgArticleUp").change(function () {
+            readURL(this);
+        });
+    </script>
+}

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Wanyar.DataLayer.Entities.ArticleGroup>
+@{
+    Layout = null;
+}
+
+
+<ul class="nav navbar-nav">
+    <li class="active"><a href="index.html">صفحه اصلی</a></li>
+
+   
+    @foreach (var group in Model.Where(g => g.parentId==null))
+    {
+        <li class="dropdown">
+            <a href="/Group/@group.groupId/@group.groupTitle" class="dropdown-toggle" data-toggle="dropdown">@group.groupTitle<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                @foreach (var subgroup in Model.Where(g => g.parentId==group.groupId))
+                {
+
+                    <li><a href="/Group/@subgroup.groupId/@subgroup.groupTitle">@subgroup.groupTitle</a></li>
+
+                }
+            </ul>
+        </li>
+    }
+
+    <div class="clearfix">
+    </div>
+
+</ul>

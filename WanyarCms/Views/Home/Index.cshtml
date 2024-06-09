@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Wanyar.Core.DTOs.Article.GetArticleForSHowViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+    
+}
+
+<div class="main-body">
+    <div class="wrap">
+        <div class="col-md-8 content-right">
+            <!--slider-->
+          
+            @await Component.InvokeAsync("SliderComponent")
+      
+            <!--slider-->
+            <partial name="_ArticleBox"/>
+            
+
+            
+
+            <!--ShowByGroup-->
+            <partial name="_ShowByGroup" />
+            <!--ShowByGroup-->
+        </div>
+        <div class="col-md-4 side-bar">
+            <div class="first_half">
+
+                <!--PopularArticle-->
+                @await Component.InvokeAsync("PopularArticleComponent")
+                <!--PopularArticle-->
+                <!--SideBarArticle-->
+                @await Component.InvokeAsync("LastArticles")
+                <!--SideBarArticle-->
+            </div>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
