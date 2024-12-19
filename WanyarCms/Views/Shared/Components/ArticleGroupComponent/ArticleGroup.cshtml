@@ -4,10 +4,23 @@
 }
 
 
-<ul class="nav navbar-nav">
+
+
+
+
+ @foreach (var group in Model)
+ {
+    <a id="navbar-link" href="/Group/@group.groupId/@group.groupTitle">
+       @group.groupTitle
+    </a>
+ }
+
+
+
+@* <ul class="nav navbar-nav">
     <li class="active"><a href="index.html">صفحه اصلی</a></li>
 
-   
+
     @foreach (var group in Model.Where(g => g.parentId==null))
     {
         <li class="dropdown">
@@ -15,15 +28,13 @@
             <ul class="dropdown-menu">
                 @foreach (var subgroup in Model.Where(g => g.parentId==group.groupId))
                 {
-
                     <li><a href="/Group/@subgroup.groupId/@subgroup.groupTitle">@subgroup.groupTitle</a></li>
-
                 }
             </ul>
         </li>
-    }
+    } *@
 
-    <div class="clearfix">
-    </div>
+@* <div class="clearfix">
+    </div> *@
 
 </ul>

@@ -1,10 +1,12 @@
 ﻿@model IEnumerable<Wanyar.Core.DTOs.Article.GetArticleForSHowViewModel>
 @{
     ViewData["Title"] = ViewData["name"];
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
-
-<h4>مقاله های مربوط به گروه "@ViewData["name"]"</h4>
+<h4>کتاب های مربوط به گروه "@ViewData["name"]"</h4>
 
 <hr />
 
-<partial name="_ArticleBox"/>
+<partial name="_ArticleBox" />
+
+<div class="clearfix"></div> 

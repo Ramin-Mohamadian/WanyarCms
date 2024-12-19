@@ -14,7 +14,7 @@ namespace WanyarCms.Components
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View("LastArticle",_articleService.LastArticles());
+            return View("LastArticle",_articleService.GetArticleBySugestion());
         }
 
     }

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Wanyar.Core.DTOs.Article.GetArticleForSHowViewModel>
+
+
+<div class="dropdown-divider"></div>
+
+<div id="drp-header" class="dropdown-header">
+    پر بازدید ها
+</div>
+ @foreach (var item in Model)
+{
+    <div id="drp-right-col-text"><a href="/Home/ShowArticle/@item.articleId" id="right-col-text"> @item.ArticleTitle </a></div>
+
+}
+
+<div class="dropdown-divider"></div>

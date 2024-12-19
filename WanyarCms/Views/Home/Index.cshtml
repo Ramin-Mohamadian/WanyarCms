@@ -5,35 +5,68 @@
     
 }
 
-<div class="main-body">
-    <div class="wrap">
-        <div class="col-md-8 content-right">
-            <!--slider-->
+
+
+<div class="row">
+
+    <!-- ستون سمت راست ثابت -->
+    <div id="right-col-md" style="background: ;" class="col-sm-6 col-md-3">
+
+        @await Component.InvokeAsync("MostVisit")
+
+     
+
+        <div id="right-col">
+            <p id="right-col-text-topic">
+              جدید ترین ها
+            </p>
+            <hr id="right-hr">
+
+            @await Component.InvokeAsync("SuggestionBook")
           
-            @await Component.InvokeAsync("SliderComponent")
+
+        </div>
+    </div>
+
+
+    <!-- ستون سمت چپ -->
+
+
+    <div id="left-col-md" style="background: ;" class="col-sm-6 col-md-9">
+
+       
+
+        <div id="left-col">
+
+           
+
+
+            @await Component.InvokeAsync("LastArticles")
+
+         
+
+        </div>
+
       
-            <!--slider-->
-            <partial name="_ArticleBox"/>
-            
+       
 
-            
+        <div id="pagination">
 
-            <!--ShowByGroup-->
-            <partial name="_ShowByGroup" />
-            <!--ShowByGroup-->
-        </div>
-        <div class="col-md-4 side-bar">
-            <div class="first_half">
+            <div id="pagination-num">
+                <img id="arrow-pagination-backward" src="images/arrow-backward.png">
+                <span id="numbers-pagination">۱</span>
+                <span id="numbers-pagination">۲</span>
+                <span id="numbers-pagination">۳</span>
+                <span id="numbers-pagination">۴</span>
+                <span id="numbers-pagination">۵</span>
 
-                <!--PopularArticle-->
-                @await Component.InvokeAsync("PopularArticleComponent")
-                <!--PopularArticle-->
-                <!--SideBarArticle-->
-                @await Component.InvokeAsync("LastArticles")
-                <!--SideBarArticle-->
+                <img id="arrow-pagination-forward" src="images/arrow-forward.png">
+
+
             </div>
-            
         </div>
-        <div class="clearfix"></div>
+
+
     </div>
 </div>
+

@@ -1,17 +1,31 @@
-﻿@model IEnumerable<Wanyar.Core.DTOs.Article.SliderViewModel>
+﻿@* @model IEnumerable<Wanyar.Core.DTOs.Article.SliderViewModel>
+ *@
+    @model IEnumerable<Wanyar.Core.DTOs.Article.GetArticleForSHowViewModel>
 
-<p>
-    <h3>اخرین مقاله ها</h3>
-</p>
-<div class="side-bar-articles">    
-   @foreach(var item in Model)
+
+    @foreach (var item in Model)
     {
-        <div class="side-bar-article">
-            <a href=""><img src="/Picture/@item.ArticleImageName" alt="" /></a>
-            <div class="side-bar-article-title">
-                <a href="">@item.ArticleTitle</a>
-            </div>
+        
+
+
+       <div id="left-col-1">
+            <a href="/Home/ShowArticle/@item.articleId" id="left-col-1-link">
+                <img id="img-left-col-1" src="/Picture/@item.ArticleImageName">
+                <div id="cap-left-col">
+                    @item.ArticleTitle      
+                </div>
+                <div id="price"> more </div>
+            </a>
+            <hr id="left-hr">     
         </div>
-    }
-    
-</div>
+
+
+
+
+      
+
+            
+     }
+
+
+

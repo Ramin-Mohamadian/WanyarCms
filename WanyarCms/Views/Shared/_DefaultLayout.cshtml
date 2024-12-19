@@ -1,218 +1,176 @@
-﻿<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html dir="rtl" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <title>مرجع تخصصی برنامه نویسان</title>
-    <link href="/css/bootstrap.css" rel='stylesheet' type='text/css' />
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-   
-    <!-- Custom Theme files -->
-    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
-    <!-- Custom Theme files -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Express News Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-   
-    <!-- for bootstrap working -->
-  
-    <!-- //for bootstrap working -->
-    <!-- web-fonts -->
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <title> </title>
+    <meta http-equiv="Content-Type" content="text/html,charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link type="text/css" href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/stylehome.css">
+    <link href="/bootstrap/js/bootstrap.js">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+
+    <! هندلر تعریف شده برای کار با رویدادها>
+    <script type="text/javascript" src="/ehandler.js"></script>
+
+    <!  سورس کد تبدیل اعداد به فارسی  >
+    <script src="/persianumber/persianumber.js"></script>
+
   
 
 </head>
 <body>
-    <!-- header-section-starts-here -->
-    <div class="header">
-        <div class="header-top">
-            <div class="wrap">
-                <div class="top-menu">
-                    <ul>
-                        <li><a href="/">صفحه اصلی</a></li>
-                        <li><a href="about.html">درباره ما</a></li>
-                        <li><a href="/SignUp">ثبت نام</a></li>
-                        <li><a href="/Login">ورود به سایت</a></li>
-                        <li><a href="/Admin">پنل ادمین</a></li>
-                        @if(User.Identity.IsAuthenticated)
-                        {
-                            <li><a href="/LogOut"> خروج از حساب </a></li>
-                        }
-                    </ul>
+
+
+    <div id="" class="container">
+        <div id="navbar" class="row">
+            <div style="background: ;" class="col-sm-12 col-md-6">
+                <img src="/images/logo.png" id="logo">
+                <p id="topic-site">
+                   مشاهده کتاب های کتابخانه دانگاه شهید یزدان پنا 
+                </p>
+            </div>
+            <div style="background: ;" class="col-sm-6 col-md-3">
+
+                <div id="search-box">
+                    <form action="/Search" method="get">
+                        <input id="textbox-search" name="search" placeholder="جست و جو"><img src="/images/magnifier.png" id="search-icon">
+                    </form>
+                  
                 </div>
-               @if(User.Identity.IsAuthenticated)
-                {
-                    <div class="num">
-                        <p>
-                             حساب کاربری :    '@User.Identity.Name'
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <div class="num">
-                        <p>
-                           تماس با ما :1161 667 0918
-                        </p>
-                    </div>
-                }
-                <div class="clearfix"></div>
+
+            </div>
+
+            <div style="background: ;" class=" col-sm-6 col-md-3">
+
+                <div id="sign-links" style="background: ;">
+                   
+                    @if(User.Identity.IsAuthenticated)
+                    {
+                        <a href="/Admin" id="signup"> پنل مدیریت</a>
+                        <a href="/LogOut" id="signup"> خروج </a>
+                    }
+                    else
+                    {
+                    <a href="/Login" id="signin"> ورود</a>
+                    <a href="/SignUp" id="signup"> ثبت نام</a>                    
+                    }
+                    /
+                    <a href="/" id="signup"> خانه</a>
+                    <a href="/" id="signup"> درباره ما</a>
+
+                  @*   <span id="cart-shop" style="background: ;">
+                        <span>
+                            <img src="/images/shop-icon.png" id="shop-icon">
+                            <span id="basket"> سبد خريد </span>
+                        </span>
+                    </span> *@
+
+                </div>
             </div>
         </div>
-        <div class="header-bottom">
-            <div class="logo text-center">
-                <a href="index.html"><img src="/images/logo.jpg" alt="" /></a>
-            </div>
-            <div class="navigation">
-                <nav class="navbar navbar-default" role="navigation">
-                    <div class="wrap">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                <span class="sr-only">
-                                    تبدیل ناوبری
-                                </span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
 
+
+        <! ستون سمت راست دراپ دون >
+        <div class="row">
+            <div id="navbar-2" class="col-md-12 ">
+                <div class="dropdown">
+                    <button id="btn" type="button" class="btn btn-primary" data-toggle="dropdown">
+
+                        <hr id="drp-menu">
+                        <hr id="drp-menu">
+                        <hr id="drp-menu">
+
+                    </button>
+                    <div class="dropdown-menu">
+
+                        @await Component.InvokeAsync("MostVisitMobile")
+
+
+                        <div id="drp-header" class="dropdown-header">
+                            تازه ترين ها
                         </div>
-                        <!--/.navbar-header-->
+                        @await Component.InvokeAsync("SuggestionBook")
+                        
 
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            
-                            @await Component.InvokeAsync("ArticleGroupComponent")
+                       
 
-                            
-
-                            <div class="search">
-                                <!-- start search-->
-                                <div class="search-box">
-                                    <div id="sb-search" class="sb-search">
-                                        <form>
-                                            <input class="sb-search-input" placeholder="عبارت جستجو را وارد کنید..." type="search" name="search" id="search">
-                                            <input class="sb-search-submit" type="submit" value="">
-                                            <span class="sb-icon-search"> </span>
-                                        </form>
-                                    </div>
-                                </div>
-                             
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
+                       
                     </div>
-                    <!--/.navbar-collapse-->
-                    <!--/.navbar-->
+                </div>
+                <div id="navbar-links">
+                                        
+                    @await Component.InvokeAsync("ArticleGroupComponent")              
+
+                </div>
+
             </div>
-            </nav>
+
+
+        </div>
+
+
+        <! بدنه اصلی سایت >
+
+
+      @RenderBody()
+
+
+
+
+
+        <! footer section >
+        <div id="footer" class="row">
+           
+            <div id="footer-col" class="col-sm-6 col-md-3">
+
+                <p id="footer-topic">خدمات مشتریان </p>
+                <p id="footer-text"> <a href="#" class="footer-link"> پاسخ به پرسش ها</a></p>
+                <p id="footer-text"> <a href="#" class="footer-link">همکاری با ما</a></p>
+                <p id="footer-text"><a href="#" class="footer-link"> شرایط بازگشت کالا </a></p>
+                <p id="footer-text"> <a href="#" class="footer-link">درباره ما</a></p>
+                <p id="footer-text"> <a href="#" class="footer-link">  ارتباط با ما</a></p>
+
+            </div>
+            <div id="footer-col" class="col-sm-6 col-md-3">
+
+                <p id="footer-topic"> ما را در شبکه های اجتماعی دنبال کنید : </p>
+                <p id="footer-text"> <a href="#"><img id="instagram-logo" src="/images/instagram-logo.png"></a> </p>
+                <p id="footer-text"> <a href="#"><img id="instagram-logo" src="/images/telegram-logo.png"></a> </p>
+
+
+            </div>
+            <div id="footer-col" class="col-sm-6 col-md-3">
+                <p id="footer-topic"> </p>
+                <p id="footer-topic"> <img id="footer-logo" src="/images/logoo.jpg"> </p>             
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div id="footer-2" class="col-md-12 ">
+
+                تمامی حقوق محفوظ است
+
+
+            </div>
+          
+
+           
+
         </div>
     </div>
-    <!-- header-section-ends-here -->
-    @await Component.InvokeAsync("PopularArticleTitle")
-    <!-- content-section-starts-here -->
-    @RenderBody()
-    <!-- content-section-ends-here -->
-    <!-- footer-section-starts-here -->
-    <div class="footer">
-        <div class="footer-top">
-            <div class="wrap">
-                <div class="col-md-3 col-xs-6 col-sm-4 footer-grid">
-                    <h4 class="footer-head">درباره ما</h4>
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
-                </div>
-                <div class="col-md-2 col-xs-6 col-sm-2 footer-grid">
-                    <h4 class="footer-head">دسته بندی</h4>
-                    <ul class="cat">
-                        <li><a href="business.html">تجارت</a></li>
-                        <li><a href="technology.html">تکنولوژی</a></li>
-                        <li><a href="entertainment.html">سرگرمی</a></li>
-                        <li><a href="sports.html">ورزشی</a></li>
-                        <li>
-                            <a href="shortcodes.html">
-                                بهداشت و درمان
-                            </a>
-                        </li>
-                        <li><a href="fashion.html">مد</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 col-xs-6 col-sm-6 footer-grid">
-                    <h4 class="footer-head">
+    <partial name="_Scripts" />
+    @RenderSection("Scripts", false)
 
-                        لورم ایپسوم
-                    </h4>
-                    <ul class="flickr">
-                        <li><a href="#"><img src="/images/bus4.jpg"></a></li>
-                        <li><a href="#"><img src="/images/bus2.jpg"></a></li>
-                        <li><a href="#"><img src="/images/bus3.jpg"></a></li>
-                        <li><a href="#"><img src="/images/tec4.jpg"></a></li>
-                        <li><a href="#"><img src="/images/tec2.jpg"></a></li>
-                        <li><a href="#"><img src="/images/tec3.jpg"></a></li>
-                        <li><a href="#"><img src="/images/bus2.jpg"></a></li>
-                        <li><a href="#"><img src="/images/bus3.jpg"></a></li>
-                        <div class="clearfix"></div>
-                    </ul>
-                </div>
-                <div class="col-md-3 col-xs-12 footer-grid">
-                    <h4 class="footer-head">تماس با ما</h4>
-                    <span class="hq">
 
-                        لورم ایپسوم یا طرح‌نما
-                    </span>
-                    <address>
-                        <ul class="location">
-                            <li><span class="glyphicon glyphicon-map-marker"></span></li>
-                            <li>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</li>
-                            <div class="clearfix"></div>
-                        </ul>
-                        <ul class="location">
-                            <li><span class="glyphicon glyphicon-earphone"></span></li>
-                            <li>+0 561 111 235</li>
-                            <div class="clearfix"></div>
-                        </ul>
-                        <ul class="location">
-                            <li><span class="glyphicon glyphicon-envelope"></span></li>
-                            <li><a href="">info@barnamenevisan.org</a></li>
-                            <div class="clearfix"></div>
-                        </ul>
-                    </address>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="wrap">
-                <div class="copylefts col-md-6">
-                    <p>
-
-                        کپی رایت@2015 تمام حقوق مادی و معنوی این سایت متعلق به گروه برنامه نویسان میباشد
-                        <a href="http://www.barnamenevisan.org">برنامه نویسان آینده ساز</a>
-                    </p>
-                </div>
-                <div class="footer-social-icons col-md-6">
-                    <ul>
-                        <li><a class="facebook" href="#"></a></li>
-                        <li><a class="twitter" href="#"></a></li>
-                        <li><a class="flickr" href="#"></a></li>
-                        <li><a class="googleplus" href="#"></a></li>
-                        <li><a class="dribbble" href="#"></a></li>
-                    </ul>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-    <!-- footer-section-ends-here -->
-
-   <partial name="_Scripts"/>
-    @RenderSection("Scripts",false)
-    <a href="#to-top" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-    <!---->
- 
 </body>
 </html>

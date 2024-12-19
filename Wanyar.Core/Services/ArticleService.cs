@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Wanyar.Core.DTOs.Article;
 using Wanyar.Core.Services.Interfaces;
@@ -126,15 +127,17 @@ namespace Wanyar.Core.Services
 
         }
 
-        public List<GetArticleForSHowViewModel> GetListArticleForSHow()
+        public List<GetArticleForSHowViewModel> GetListArticleForSHow(string search = "")
         {            
-            return _context.Articles.OrderByDescending(a=>a.CreateDate).Take(6).Select(a=>new GetArticleForSHowViewModel()
+            var books= _context.Articles.OrderByDescending(a=>a.CreateDate).Take(9).Where(p=>p.ArticleTitle.Contains(search)).Select(a=>new GetArticleForSHowViewModel()
             {
                 articleId=a.articleId,
                 ArticleTitle=a.ArticleTitle,
                 ArticleImageName=a.ArticleImageName,
                 CreateDate = a.CreateDate
             }).ToList();
+
+            return books;
         }
 
         public List<SliderViewModel> GetSliderForSHow()
@@ -173,9 +176,9 @@ namespace Wanyar.Core.Services
             }).ToList();
         }
 
-        public List<GetArticleForSHowViewModel> GrtArticleByGroupid(int? groupid)
+        public List<GetArticleForSHowViewModel> GrtArticleByGroupid(int? groupid, string search = "")
         {
-            return _context.Articles.Where(a=>a.GroupId==groupid||a.SubGroup==groupid)
+            return _context.Articles.Where(a=>a.GroupId==groupid||a.SubGroup==groupid&&a.ArticleTitle.Contains(search))
                 .Select(a=>new GetArticleForSHowViewModel()
                 {
                     articleId = a.articleId,
@@ -183,6 +186,41 @@ namespace Wanyar.Core.Services
                     ArticleTitle= a.ArticleTitle,
                     CreateDate= a.CreateDate,                    
                 }).ToList();
+        }
+
+        public List<GetArticleForSHowViewModel> GrtArticleBysearch(string search = "")
+        {
+            return _context.Articles.Where(a =>  a.ArticleTitle.Contains(search))
+            .Select(a => new GetArticleForSHowViewModel()
+            {
+                     articleId = a.articleId,
+                     ArticleImageName = a.ArticleImageName,
+                     ArticleTitle = a.ArticleTitle,
+                     CreateDate = a.CreateDate,
+                 }).ToList();
+        }
+
+        public List<GetArticleForSHowViewModel> GetArticleByVisit()
+        {
+           return _context.Articles.OrderByDescending(a=>a.Visit).Take(9).Select(a=> new GetArticleForSHowViewModel()
+           {
+               articleId = a.articleId,
+               ArticleImageName = a.ArticleImageName,
+               ArticleTitle = a.ArticleTitle,
+               CreateDate = a.CreateDate,
+           }).ToList();
+        }
+
+        public List<GetArticleForSHowViewModel> GetArticleBySugestion()
+        {
+            
+            return _context.Articles.OrderBy(a=>Guid.NewGuid()).Select(a => new GetArticleForSHowViewModel()
+            {
+                articleId = a.articleId,
+                ArticleImageName = a.ArticleImageName,
+                ArticleTitle = a.ArticleTitle,
+                CreateDate = a.CreateDate,
+            }).ToList();
         }
     }
 

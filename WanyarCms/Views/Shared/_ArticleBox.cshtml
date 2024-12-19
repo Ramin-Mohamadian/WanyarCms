@@ -1,31 +1,31 @@
 ﻿@model IEnumerable<Wanyar.Core.DTOs.Article.GetArticleForSHowViewModel>
 
-<div class="life-style">
-    <header>
-        <h3 class="title-head">
-            سبک زندگی
-        </h3>
-    </header>
 
+
+
+  
+  
+
+ 
     @foreach (var item in Model)
     {
-        <div class="life-style-grids">
-            @if (item.articleId % 2==0)
-            {
-                <div class="life-style-right-grid">
-                    <a href="/Home/ShowArticle/@item.articleId"><img style="max-height:248px;max-width:400px" src="/Picture/@item.ArticleImageName" alt="" /></a>
-                    <a class="title" href="/Home/ShowArticle/@item.articleId">@item.ArticleTitle</a>
-                </div>
-            }
-            else
-            {
-                <div class="life-style-left-grid">
-                    <a href="/Home/ShowArticle/@item.articleId"><img style="max-height:248px;max-width:400px" src="/Picture/@item.ArticleImageName" alt="" /></a>
-                    <a class="title" href="/Home/ShowArticle/@item.articleId">@item.ArticleTitle</a>
-                </div>
-            }
 
+
+
+        <div id="left-col-1">
+            <a href="/Home/ShowArticle/@item.articleId" id="left-col-1-link">
+                <img id="img-left-col-1" src="/Picture/@item.ArticleImageName">
+                <div id="cap-left-col">
+                    @item.ArticleTitle
+                </div>
+                <div id="price"> more </div>
+            </a>
+            <hr id="left-hr">
         </div>
-    } <div class="clearfix"></div>
+    }
 
-</div>
+
+ 
+   
+
+

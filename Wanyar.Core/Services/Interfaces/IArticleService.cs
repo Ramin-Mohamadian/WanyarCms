@@ -26,7 +26,7 @@ namespace Wanyar.Core.Services.Interfaces
 
         void EditArticleForDelete(Article article);
 
-        List<GetArticleForSHowViewModel> GetListArticleForSHow();
+        List<GetArticleForSHowViewModel> GetListArticleForSHow(string search="");
 
         List<SliderViewModel> GetSliderForSHow();
 
@@ -34,6 +34,10 @@ namespace Wanyar.Core.Services.Interfaces
         List<SliderViewModel> GetPopularArticle();
         List<SliderViewModel> LastArticles();
 
-        List<GetArticleForSHowViewModel> GrtArticleByGroupid(int? groupid);
+        List<GetArticleForSHowViewModel> GrtArticleByGroupid(int? groupid,string search="");
+        List<GetArticleForSHowViewModel> GrtArticleBysearch(string search = "");
+        List<GetArticleForSHowViewModel> GetArticleByVisit();
+        List<GetArticleForSHowViewModel> GetArticleBySugestion();
+
     }
 }

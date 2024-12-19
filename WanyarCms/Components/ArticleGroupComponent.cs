@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Wanyar.Core.Services.Interfaces;
-using Wanyar.DataLayer.Entities;
 
 namespace WanyarCms.Components
 {

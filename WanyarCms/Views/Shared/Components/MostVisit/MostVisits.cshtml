@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Wanyar.Core.DTOs.Article.GetArticleForSHowViewModel>
+
+
+
+<div id="right-col">
+    <p id="right-col-text-topic">
+        پر بازدید ها
+    </p>
+    <hr id="right-hr">
+   @foreach (var item in Model)
+    {
+        <div id="right-col-text">
+            <a href="/Home/ShowArticle/@item.articleId" id="right-col-text">
+                @item.ArticleTitle
+            </a>
+        </div>
+    }
+   
+
+</div>

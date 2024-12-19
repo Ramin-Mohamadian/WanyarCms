@@ -1,53 +1,123 @@
 ﻿
 
 
-<script src="/js/jquery.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        /*
-        var defaults = {
-        wrapID: 'toTop', // fading element id
-        wrapHoverID: 'toTopHover', // fading element hover id
-        scrollSpeed: 1200,
-        easingType: 'linear'
-        };
-        */
-        $().UItoTop({ easingType: 'easeOutQuart' });
-    });
-</script>
-<script type="text/javascript" src="/js/jquery.marquee.min.js"></script>
+
 <script>
-    $('.marquee').marquee({ pauseOnHover: true });
-    // sourceURL=pen.js
-</script>
-<script src="/js/classie.js"></script>
-<script src="/js/uisearch.js"></script>
-<script>
-    new UISearch(document.getElementById('sb-search'));
-</script>
-<script>
-    $(function () {
-        $("#slider").responsiveSlides({
-            auto: true,
-            nav: true,
-            speed: 500,
-            namespace: "callbacks",
-            pager: true,
-        });
+
+
+
+    var cart = document.getElementById("cart-shop");
+    EHandler.add(cart, "click", function () {
+
+        cartpage();
     });
-</script>
-<script type="text/javascript" src="/js/move-top.js"></script>
-<script type="text/javascript" src="/js/easing.js"></script>
-<!--/script-->
-<script type="text/javascript">
-    jQuery(document).ready(function ($) {
-        $(".scroll").click(function (event) {
-            event.preventDefault();
-            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 900);
-        });
+
+
+    var product1 = document.getElementById("basket-add-1");
+    var product1nc = "product1";
+    var product1n = product1.name;
+    var product1v = product1.value;
+
+    EHandler.add(product1, "click", function () {
+        cookie(product1nc, product1n, product1v);
     });
+
+
+    var product2 = document.getElementById("basket-add-2");
+    var product2nc = "product2";
+    var product2n = product2.name;
+    var product2v = product2.value;
+    EHandler.add(product2, "click", function () {
+        cookie(product2nc, product2n, product2v);
+    });
+
+    var product3 = document.getElementById("basket-add-3");
+    var product3nc = "product3";
+    var product3n = product3.name;
+    var product3v = product3.value;
+    EHandler.add(product3, "click", function () {
+        cookie(product3nc, product3n, product3v);
+    });
+
+    var product4 = document.getElementById("basket-add-4");
+    var product4nc = "product4";
+    var product4n = product4.name;
+    var product4v = product4.value;
+    EHandler.add(product4, "click", function () {
+        cookie(product4nc, product4n, product4v);
+    });
+
+    var product5 = document.getElementById("basket-add-5");
+    var product5nc = "product5";
+    var product5n = product5.name;
+    var product5v = product5.value;
+    EHandler.add(product5, "click", function () {
+        cookie(product5nc, product5n, product5v);
+    });
+
+    var product6 = document.getElementById("basket-add-6");
+    var product6nc = "product6";
+    var product6n = product6.name;
+    var product6v = product6.value;
+    EHandler.add(product6, "click", function () {
+        cookie(product6nc, product6n, product6v);
+    });
+
+    var product7 = document.getElementById("basket-add-7");
+    var product7nc = "product7";
+    var product7n = product7.name;
+    var product7v = product7.value;
+    EHandler.add(product7, "click", function () {
+        cookie(product7nc, product7n, product7v);
+    });
+
+    var product8 = document.getElementById("basket-add-8");
+    var product8nc = "product8";
+    var product8n = product8.name;
+    var product8v = product8.value;
+    EHandler.add(product8, "click", function () {
+        cookie(product8nc, product8n, product8v);
+    });
+
+    var product9 = document.getElementById("basket-add-9");
+    var product9nc = "product9";
+    var product9n = product9.name;
+    var product9v = product9.value;
+    EHandler.add(product9, "click", function () {
+        cookie(product9nc, product9n, product9v);
+    });
+
+    var product10 = document.getElementById("basket-add-10");
+    var product10nc = "product10";
+    var product10n = product10.name;
+    var product10v = product10.value;
+    EHandler.add(product10, "click", function () {
+        cookie(product10nc, product10n, product10v);
+    });
+
+    var product11 = document.getElementById("basket-add-11");
+    var product11nc = "product11";
+    var product11n = product11.name;
+    var product11v = product11.value;
+    EHandler.add(product11, "click", function () {
+        cookie(product11nc, product11n, product11v);
+    });
+    var product12 = document.getElementById("basket-add-12");
+    var product12nc = "product12";
+    var product12n = product12.name;
+    var product12v = product12.value;
+    EHandler.add(product12, "click", function () {
+        cookie(product12nc, product12n, product12v);
+    });
+
+
+
+
+
+
+
+
+
+
+
 </script>
-<script src="/js/responsiveslides.min.js"></script>
-<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/js/bootstrap.js"></script>
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>

@@ -31,7 +31,7 @@ namespace WanyarCms
             #region Context
             services.AddDbContext<WanyarContext>(option =>
             {
-                option.UseSqlServer("Data Source=.;Initial Catalog=WanyarCMSDB;Integrated Security=True;MultipleActiveResultSets=True");
+                option.UseSqlServer("Data Source=.;Initial Catalog=Yazdanpanah_LibraryDb;Integrated Security=true;TrustServerCertificate=True;MultipleActiveResultSets=true;");
             });
             #endregion
 

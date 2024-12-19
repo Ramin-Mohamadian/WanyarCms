@@ -1,138 +1,54 @@
 ﻿@model Wanyar.DataLayer.Entities.Article
+
 @{
-    ViewData["Title"] = "نمایش مقاله";
+    ViewData["Title"] = "ShowArticle";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
 
-<div class="main-body">
-    <div class="wrap">
-        <ol class="breadcrumb">
-            <li><a href="index.html">صفحه اصلی</a></li>
-            <li class="active">@Model.ArticleTitle</li>
-        </ol>
-        <div class="single-page">
-            <div class="col-md-2 share_grid">
-                <h3>اشتراک گذاری</h3>
-                <ul>
-                    <li>
-                        <a href="#">
-                            <i class="facebook"></i>
-                            <div class="views">
-                                <span>اشتراک گذاری</span>
-                                <label>180</label>
-                            </div>
-                            <div class="clearfix"></div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="twitter"></i>
-                            <div class="views">
-                                <span>TWEET</span>
-                                <label>355</label>
-                            </div>
-                            <div class="clearfix"></div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="linkedin"></i>
-                            <div class="views">
-                                <span>اشتراک گذاری</span>
-                                <label>28</label>
-                            </div>
-                            <div class="clearfix"></div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="pinterest"></i>
-                            <div class="views">
-                                <span>PIN</span>
-                                <label>16</label>
-                            </div>
-                            <div class="clearfix"></div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="email"></i>
-                            <div class="views">
-                                <span>ایمیل</span>
-                            </div>
-                            <div class="clearfix"></div>
-                        </a>
-                    </li>
-                </ul>
+
+
+
+<div id="footer" class="row" dir="rtl">
+    <div id="footer-col" class="col-sm-12 col-md-12" style="text-align:right">
+
+
+        <p id="footer-topic">
+            <div class="d-flex justify-content-center">
+                <img style="max-width:450px;" src="/Picture/@Model.ArticleImageName" class="img-fluid justify-content-center" />
             </div>
-            <div class="col-md-6 content-right single-post">
-                <div class="blog-posts">
-                    <h3 class="post">@Model.ArticleTitle</h3>
-                    <div class="last-article">
 
-                        <iframe src="/Picture/@Model.ArticleImageName" frameborder="0" allowfullscreen=""></iframe>
-                        <p class="artext">@Html.Raw(Model.Text)</p>
-
-                        <ul class="categories">
-                            @if(Model.Tags!=null)
-                            {
-                                foreach(var item in Model.Tags.Split(",",StringSplitOptions.RemoveEmptyEntries))
-                                {
-                                    <li><a href="#">@item</a></li>
-                                }
-                            }
-
-                        </ul>
-                        <div class="clearfix"></div>
+            
+        </p> 
+     
+        <hr />
+        <br />
+        <p class="text-right" dir="rtl">
+            @Html.Raw(Model.Text)
+        </p>
+       
+        
 
 
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-4 side-bar">
-                <div class="first_half">
-                    <div class="categories">
-                        <header>
-                            <h3 class="side-title-head">محصولات</h3>
-                        </header>
-                        <ul>
-                            <li><a href="business.html">خرید و فروش</a></li>
-                            <li><a href="technology.html">Technology</a></li>
-                            <li><a href="entertainment.html">تفریح و سرگرمی</a></li>
-                            <li><a href="sports.html">ورزش</a></li>
-                            <li><a href="fashion.html">مد و فشن</a></li>
-                            <li><a href="shortcodes.html">سلامتی</a></li>
-                        </ul>
-                    </div>
-
-                    <!--Popular Article-->
-                    @await Component.InvokeAsync("PopularArticleComponent")
-                    <!--End Popular Article-->
-
-                </div>
-                <div class="secound_half">
-                    <div class="tags">
-                        <header>
-                            <h3 class="title-head">تگ ها</h3>
-                        </header>
-                        <p>
-                             @if(Model.Tags!=null)
-                            {
-                                foreach (var item in Model.Tags.Split(',',StringSplitOptions.RemoveEmptyEntries))
-                                {
-                                    <a class="tag1" href="single.html">@item</a>
-                                }
-                            }
+    </div>
+    
+    
+    </div>
+<div id="footer-col" class="col-sm-6 col-md-3" style="text-align:right">
 
 
-                        </p>
-                    </div>
+    <ul class="categories">
+        @if (Model.Tags != null)
+        {
+            foreach (var item in Model.Tags.Split(",", StringSplitOptions.RemoveEmptyEntries))
+            {
+                <h3>
+                    <a class="bg-info text-danger" href="">@item</a>
+                </h3>
+            }
+        }
 
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
+    </ul> 
+
     </div>
 </div>
 

@@ -1,0 +1,511 @@
+<!doctype html>
+<html dir="rtl" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+
+    <meta charset="UTF-8">
+    <title> </title>
+    <meta http-equiv="Content-Type" content="text/html,charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" >
+    <link  rel="stylesheet" type="text/css" href="../css/stylecart.css" >
+    <link   href="../bootstrap/js/bootstrap.js">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+
+    <! هندلر تعریف شده برای کار با رویدادها>
+    <script type="text/javascript" src="ehandler.js"></script>
+
+    <!  سورس کد تبدیل اعداد به فارسی  >
+    <script src="../persianumber/persianumber.js"></script>
+
+    <script >
+
+        /*  تبدیل اعداد به فارسی */
+        $(document).ready(function(){
+            $('body').persiaNumber();
+
+        });
+
+        /*   ساخت و نمایش پنجره کوچک سبد خرید */
+        function cartpage() {
+            if(screen.availWidth < 700 ){
+                location.reload();
+
+            }
+
+            else if (document.getElementById("cart-page") === null) {
+
+
+                var page = document.createElement("div");
+                page.setAttribute("id", "cart-page");
+                var parent = document.getElementById("container");
+                document.body.appendChild(page);
+
+
+                var headercartshop = document.createElement("div");
+                headercartshop.setAttribute("id", "headercartshop");
+                headercartshop.appendChild(document.createTextNode("مبلغ کل خرید شما : 80000 تومان"));
+                var cartLink=document.createElement("a");
+                cartLink.setAttribute("id","cartlink");
+                cartLink.setAttribute("href","cart-shop.html");
+                cartLink.appendChild(document.createTextNode("مشاهده سبد خرید"));
+                headercartshop.appendChild(cartLink);
+                page.appendChild(headercartshop);
+
+                var WrapCartPage=document.createElement("div");
+                WrapCartPage.setAttribute("id","WrapCartPage");
+
+                var cookie = document.cookie.split(";");
+                for (var i = 0; i < cookie.length; i++) {
+                    var cookiee = cookie[i].split("=");
+                    var cookiname = cookiee[0];
+                    var cookivalue = cookiee[1];
+                    var regex = "product\[0-9]";
+                    if (cookiname.match(regex)) {
+
+                        var cartsec = document.createElement("div");
+                        cartsec.setAttribute("id", "cart-order");
+
+
+                        var cokv = cookivalue.split("-");
+
+                        var cokvn = cokv[0];
+                        var cokvname = cokvn.split(":");
+                        var cokvnamefa = cokvname[1];
+                        var cokvc = cokv[1];
+                        var cokvcc = cokvc.split(":");
+                        var cokcode = cokvcc[1];
+
+                        var pic = document.createElement("img");
+                        pic.setAttribute("src", "../images/" + cokcode + ".jpg");
+                        pic.setAttribute("id", "cart-order-pic");
+                        cartsec.appendChild(pic);
+
+                        cartsec.appendChild(document.createTextNode(cokvnamefa));
+
+                        var productlink = document.createElement("a");
+                        productlink.setAttribute("id", "productlink");
+                        productlink.setAttribute("href", cookiname + ".html");
+                        productlink.appendChild(cartsec);
+                        WrapCartPage.appendChild(productlink);
+                        page.appendChild(WrapCartPage);
+
+                        var crosslink = document.createElement("a");
+                        crosslink.setAttribute("id", "crosslink");
+                        crosslink.setAttribute("href", "../deletecookie.html?" + "id=" + cokcode);
+                        var cross = document.createElement("img");
+                        cross.setAttribute("src", "../images/cross.png");
+                        cross.setAttribute("id", "cross");
+                        crosslink.appendChild(cross);
+                        WrapCartPage.appendChild(crosslink);
+                        page.appendChild(WrapCartPage);
+
+
+                    }
+                }
+
+
+                window.addEventListener('click', function(e){
+                    if (document.getElementById('cart-shop').contains(e.target)){
+
+                    } else if(document.getElementById('cart-page').contains(e.target)) {
+                    }else{
+                        $('#cart-page').hide();
+
+                    }
+                });
+
+                var sabtsefaresh = document.createElement("div");
+                sabtsefaresh.setAttribute("id", "sabtsefaresh");
+                var sabtlink = document.createElement("a");
+                sabtlink.setAttribute("href", "../cart/cart-shop.html");
+                sabtlink.setAttribute("id", "sabtlink");
+                sabtsefaresh.appendChild(document.createTextNode("ثبت سفارش"));
+                sabtlink.appendChild(sabtsefaresh);
+                page.appendChild(sabtlink);
+
+                if (document.getElementById("cart-order") === null) {
+                    var pag = document.getElementById("cart-page");
+                    pag.style.display = "block";
+                    pag.style.width = "225px";
+                    pag.style.height = "auto";
+                    pag.style.overflow = "hidden";
+                    pag.style.padding = "0px 0px 0px 30px";
+                    pag.innerHTML = "سبد خرید شما خالیست";
+
+
+                }
+
+
+
+            }
+            else if(document.getElementById("cart-page").style.display==="none" ){
+
+                var pagee = document.getElementById("cart-page");
+                pagee.style.display = "block";
+
+            }
+            else {
+
+                var p = document.getElementById("cart-page");
+                p.style.display = "none";
+
+
+
+            }
+        }
+
+
+
+
+    </script>
+
+        </head>
+<body>
+
+<script>
+
+
+</script>
+<div id="" class="container">
+    <div id="navbar" class="row">
+        <div   style="background: ;" class="col-sm-12 col-md-6">
+            <img src="../images/logo.png" id="logo">
+            <p id="topic-site">
+                فروشگاه اینترنتی قلاب Hook
+            </p>
+        </div>
+        <div style="background: ;" class="col-sm-6 col-md-3">
+
+            <div id="search-box">
+
+                <input id="textbox-search" placeholder="جست و جو"><img src="../images/magnifier.png" id="search-icon"></div>
+
+        </div>
+
+        <div style="background: ;" class=" col-sm-6 col-md-3">
+
+            <div id="sign-links" style="background: ;">
+                <a href="#" id="signin"> ورود</a>
+                <a href="#" id="signup"> ثبت نام</a>
+
+
+                <span id="cart-shop" style="background: ;">
+<span >
+           <img src="../images/shop-icon.png" id="shop-icon">
+        <span id="basket"> سبد خريد </span>
+</span>
+       </span>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div  id="navbar-2"  class="col-md-12 ">
+            <div id="navbar-links" >
+
+
+
+                <a id="navbar-link" href="../index.html">
+
+                    خانه
+
+                </a>
+                <a id="navbar-link" href="#">
+                    تازه ترين ها
+                </a>
+                <a id="navbar-link" href="#">
+                    درباره ما
+                </a>
+            </div>
+        </div>
+    </div>
+
+<! main section>
+    <div id="mainpage" class="row">
+        <div   id="right-col-md" style="background: ;" class="col-sm-12 col-md-9">
+
+            <div id="right-col" class="right-col-hidden">
+
+<div id="right-col-sec">
+                <div id="caption-top" >
+
+                    سبد خرید
+
+                </div>
+
+
+                <! ستون سمت راست>
+    <script >
+
+
+                    var rightcol=document.getElementById("right-col-sec");
+
+                    var cookie = document.cookie.split(";");
+                    for (var i = 0; i < cookie.length; i++) {
+
+                        var cookiee = cookie[i].split("=");
+                        var cookiname = cookiee[0];
+                        var cookivalue = cookiee[1];
+                        var regex = "product\[0-9]";
+
+                        if (cookiname.match(regex)) {
+
+                            var cokv = cookivalue.split("-");
+                            var cokvn = cokv[0];
+                            var cokvname = cokvn.split(":");
+                            var cokvnamefa = cokvname[1];
+                            var cokvc = cokv[1];
+                            var cokvcc = cokvc.split(":");
+                            var cokcode = cokvcc[1];
+
+var CartOrderSec=document.createElement("div");
+CartOrderSec.setAttribute("id" , "right-cart-order-sec");
+
+                            var crossec = document.createElement("div");
+                            crossec.setAttribute("id", "crossec");
+                            var crosslink = document.createElement("a");
+                            crosslink.setAttribute("id", "crosslink");
+                            crosslink.setAttribute("href", "../deletecookie.html?" + "id=" + cokcode);
+                            var cross = document.createElement("img");
+                            cross.setAttribute("src", "../images/cross.png");
+                            cross.setAttribute("id", "crosspage");
+                            crosslink.appendChild(cross);
+                            crossec.appendChild(crosslink);
+                            CartOrderSec.appendChild(crossec);
+
+
+                            var pic = document.createElement("img");
+                            pic.setAttribute("src", "../images/" + cokcode + ".jpg");
+                            pic.setAttribute("id", "cart-order-pic-page");
+                            CartOrderSec.appendChild(pic);
+
+                            var cartOrderText = document.createElement("p");
+                            cartOrderText.setAttribute("id","cart-order-text-page");
+                            cartOrderText.appendChild(document.createTextNode(cokvnamefa));
+                            CartOrderSec.appendChild(cartOrderText);
+
+
+
+
+                            rightcol.appendChild(CartOrderSec);
+
+
+
+                            var CartOrderSecL=document.createElement("div");
+                            CartOrderSecL.setAttribute("id" , "left-cart-order-sec");
+
+
+                            var number = document.createElement("div");
+                            number.innerHTML = "<div id=\"number-items-sec\">\n" +
+                                "            <div id=\"number-items-topic\">\n" +
+                                "            تعداد\n" +
+                                "            </div>\n" +
+                                "\n" +
+                                "            <select id=\"number-items\">\n" +
+                                "\n" +
+                                "            <option >1</option>\n" +
+                                "            <option >2</option>\n" +
+                                "            <option >3</option>\n" +
+                                "            <option >4</option>\n" +
+                                "            <option >5</option>\n" +
+                                "            <option >6</option>\n" +
+                                "            <option >7</option>\n" +
+                                "            <option >8</option>\n" +
+                                "            <option >9</option>\n" +
+                                "            <option >10</option>\n" +
+                                "\n" +
+                                "            </select>\n" +
+                                "\n" +
+                                "            </div>";
+                            CartOrderSecL.appendChild(number);
+
+                            var price = document.createElement("div");
+                            price.setAttribute("id", "price");
+                            var textPrice1 = document.createElement("p");
+                            textPrice1.setAttribute("id", "textPrice");
+                            var del = document.createElement("del");
+                            del.appendChild(textPrice1);
+                            textPrice1.appendChild(document.createTextNode("20000 هزار تومان"));
+                            price.appendChild(del);
+                            var textPrice2 = document.createElement("p");
+                            textPrice2.setAttribute("id", "textPrice2");
+                            textPrice2.appendChild(document.createTextNode("تخفیف به مناسبت ..."));
+                            var textPrice3 = document.createElement("p");
+                            textPrice3.setAttribute("id", "textPrice3");
+                            textPrice3.appendChild(document.createTextNode("17000 هزار تومان"));
+                            price.appendChild(textPrice2);
+                            price.appendChild(textPrice3);
+
+                            CartOrderSecL.appendChild(price);
+
+
+                            rightcol.appendChild(CartOrderSecL);
+
+
+                            if((i + 1) !== (cookie.length)){
+                                var hr = document.createElement("hr");
+                                hr.setAttribute("id", "seperate-cart");
+                                rightcol.appendChild(hr);
+
+                            }
+
+
+
+
+                        }
+
+                    }
+
+
+
+                </script>
+
+</div>
+            </div>
+        </div>
+
+
+
+        <div   id="left-col-md"  class="col-md-3">
+            <div class="left-col-hidden"  id="left-col">
+
+                <div id="left-col-sec" >
+                    <p id="left-col-text-topic">
+                        مبلغ کل :
+
+                    </p>
+                    <p id="left-col-text-topic">
+
+                        تعداد کل کالا :
+                    </p>
+                    <hr id="left-hr">
+                    <div id="left-col-text">
+
+                        مبلغ قابل پرداخت :
+
+                    </div>
+                    <a href="" id="sabtesefaresh-page">
+                        <div id="sabtesefaresh-page">
+                            ثبت سفارش
+
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+</div>
+
+
+    <! footer section >
+    <div id="footer" class="row">
+    <div id="footer-col" class="col-sm-6 col-md-3">
+
+
+        <p id="footer-topic" >
+            راهنماي خريد از فروشگاه اينترنتي
+        </p>
+
+        <p id="footer-text">
+            <a href="#" class="footer-link">نحوه ثبت سفارش</a></p>
+        <p id="footer-text"><a href="#" class="footer-link"> شيوه ارسال</a></p>
+        <p id="footer-text"><a href="#" class="footer-link"> شیوه پرداخت</a></p>
+
+
+    </div>
+    <div id="footer-col" class="col-sm-6 col-md-3">
+
+        <p id="footer-topic">خدمات مشتریان </p>
+        <p id="footer-text"> <a href="#" class="footer-link"> پاسخ به پرسش ها</a></p>
+        <p id="footer-text"> <a href="#" class="footer-link">همکاری با ما</a></p>
+        <p id="footer-text"><a href="#" class="footer-link"> شرایط بازگشت کالا </a></p>
+        <p id="footer-text"> <a href="#" class="footer-link">درباره ما</a></p>
+        <p id="footer-text"> <a href="#" class="footer-link">  ارتباط با ما</a></p>
+
+    </div>
+    <div id="footer-col" class="col-sm-6 col-md-3">
+
+        <p id="footer-topic"> ما را در شبکه های اجتماعی دنبال کنید : </p>
+        <p id="footer-text"> <a href="#"><img id="instagram-logo" src="../images/instagram-logo.png"></a> </p>
+        <p id="footer-text"> <a href="#"><img id="instagram-logo" src="../images/telegram-logo.png"></a> </p>
+
+
+    </div>
+    <div id="footer-col" class="col-sm-6 col-md-3">
+
+        <p id="footer-topic">محل قرارگیری لوگو </p>
+        <p id="footer-topic"> <img id="footer-logo" src="../images/footer-logo.png"> </p>
+        <p id="footer-topic"> <img id="footer-logo-2"  src="../images/footer-logo-2.png"></p>
+
+
+    </div>
+    </div>
+
+
+    <div class="row">
+        <div   id="footer-2" class="col-md-12 ">
+
+            تمامی حقوق محفوظ است
+
+
+        </div>
+
+
+</div>
+
+
+<script type="text/javascript">
+
+
+    var cart=document.getElementById("cart-shop");
+    EHandler.add(cart, "click" , function () {
+
+        cartpage();
+    });
+
+
+        if(document.getElementById("right-cart-order-sec")!== null) {
+
+
+            $(document).ready(function() {
+
+                $("#left-col").removeClass("left-col-hidden");
+                $("#right-col").removeClass("right-col-hidden");
+            });
+
+        } else {
+
+            var emptypage=document.createElement("div");
+            emptypage.setAttribute("id","emptypage");
+            var mainpage=document.getElementById("mainpage");
+
+            var emptycartimg=document.createElement("img");
+            emptycartimg.setAttribute("id", "emptycartimg");
+            emptycartimg.setAttribute("src","../images/emptycart.jpg");
+            emptypage.appendChild(emptycartimg);
+           var emptyText=document.createElement("p");
+           emptyText.appendChild(document.createTextNode("سبد خرید شما خالیست!"));
+            emptypage.appendChild(emptyText);
+            mainpage.appendChild(emptypage);
+
+
+
+
+        }
+
+
+</script>
+
+
+</body>
+</html>
