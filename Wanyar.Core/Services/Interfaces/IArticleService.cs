@@ -36,7 +36,7 @@ namespace Wanyar.Core.Services.Interfaces
 
         List<GetArticleForSHowViewModel> GrtArticleByGroupid(int? groupid,string search="");
         List<GetArticleForSHowViewModel> GrtArticleBysearch(string search = "");
-        List<GetArticleForSHowViewModel> GetArticleByVisit();
+        List<visitshow> GetArticleByVisit();
         List<GetArticleForSHowViewModel> GetArticleBySugestion();
 
     }

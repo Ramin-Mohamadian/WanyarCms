@@ -200,14 +200,15 @@ namespace Wanyar.Core.Services
                  }).ToList();
         }
 
-        public List<GetArticleForSHowViewModel> GetArticleByVisit()
+        public List<visitshow> GetArticleByVisit()
         {
-           return _context.Articles.OrderByDescending(a=>a.Visit).Take(9).Select(a=> new GetArticleForSHowViewModel()
+           return _context.Articles.OrderByDescending(a=>a.Visit).Take(18).Select(a=> new visitshow()
            {
                articleId = a.articleId,
                ArticleImageName = a.ArticleImageName,
                ArticleTitle = a.ArticleTitle,
                CreateDate = a.CreateDate,
+                visit=a.Visit,
            }).ToList();
         }
 

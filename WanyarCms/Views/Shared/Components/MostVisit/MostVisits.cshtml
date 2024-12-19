@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Wanyar.Core.DTOs.Article.GetArticleForSHowViewModel>
+﻿@model IEnumerable<Wanyar.Core.DTOs.Article.visitshow>
 
 
 
@@ -11,7 +11,7 @@
     {
         <div id="right-col-text">
             <a href="/Home/ShowArticle/@item.articleId" id="right-col-text">
-                @item.ArticleTitle
+                @item.ArticleTitle <span> (@item.visit.ToString())</span>
             </a>
         </div>
     }
