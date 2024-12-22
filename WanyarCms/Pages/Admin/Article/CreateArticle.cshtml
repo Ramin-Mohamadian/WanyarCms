@@ -9,13 +9,13 @@
         <div class="col-md-8">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    فرم مقاله
+                    فرم کتاب
                 </div>
                 <div class="panel-body">
 
                     <div class="form-group">
-                        <label>عنوان مقاله</label>
-                        <input type="text" asp-for="Article.ArticleTitle" class="form-control" placeholder="عنوان مقاله" />
+                        <label>عنوان کتاب</label>
+                        <input type="text" asp-for="Article.ArticleTitle" class="form-control" placeholder="عنوان کتاب" />
                     </div>
                     <span asp-validation-for="Article.ArticleTitle"></span>
 
@@ -47,7 +47,7 @@
 
 
                     <div class="form-group">
-                        <label>متن مقاله</label>
+                        <label>متن کتاب</label>
                         <textarea class="form-control" asp-for="Article.Text"></textarea>
                     </div>
                     <span asp-validation-for="Article.Text"></span>
@@ -81,7 +81,7 @@
         <div class="col-md-4">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    تصویر مقاله
+                    تصویر کتاب
                 </div>
                 <div class="panel-body">
                     <img src="/Picture/default.jpg" id="previewHolder" class="thumbnail" />
